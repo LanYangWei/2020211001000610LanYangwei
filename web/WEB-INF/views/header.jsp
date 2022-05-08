@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<%@page import="com.LanYangwei.model.User" %>
+<%@page import="com.LanYawei.model.User" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+//	System.out.println(basePath);
 //.println(basePath);
 %>
 <html lang="en">

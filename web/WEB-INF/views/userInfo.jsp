@@ -1,6 +1,4 @@
-<%@ page import="com.LanYangwei.model.User" %>
-<%@ page import="java.text.DateFormat" %>
-<%@ page import="java.text.SimpleDateFormat" %><%--
+<%@ page import="com.LanYawei.model.User" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 4/5/2021
@@ -10,36 +8,25 @@
 
 <%@include file="header.jsp"%>
 <h1> User Info</h1>
-<%--<%
-    Cookie [] allCookies=request.getCookies();
-    for (Cookie c:allCookies){
-        out.println("<br/>"+c.getName()+" --- "+c.getValue());
-    }
-%>--%>
+
 <%
-    User u=(User) session.getAttribute("user");
-    DateFormat df= new SimpleDateFormat("yyyy-MM-dd");
-    String birth=df.format(u.getBirthDate());
+//User user=(User)request.getAttribute("user");
+    User user=(User)request.getSession().getAttribute("user");
 %>
 <table>
     <tr>
-        <td>Username:</td><td><%=u.getUsername()%></td>
-    </tr>
-    <tr>
-        <td>Password:</td><td><%=u.getPassword()%></td>
-    </tr>
-    <tr>
-        <td>Email:</td><td><%=u.getEmail()%></td>
-    </tr>
-    <tr>
-        <td>Gender:</td><td><%=u.getGender()%></td>
-    </tr>
-    <tr>
-        <td>Birth Date:</td><td><%=birth%></td>
-    </tr>
-    <tr>
-        <td><a href="updateUser">Update User</a></td>
-    </tr>
+        <td>Username:</td><td><%=user.getUsername()%></td>
+    </tr><tr>
+        <td>Password:</td><td><%=user.getPassword()%></td>
+</tr><tr>
+        <td>Email:</td><td><%=user.getEmail()%></td>
+</tr><tr>
+    <td>Gender:</td><td><%=user.getGender()%></td>
+</tr><tr>
+    <td>Birth Date:</td><td><%=user.getBirthdate()%></td>
+</tr><tr>
+    <td><a href="update">updateInfo</a></td>
+</tr>
 
 </table>
 

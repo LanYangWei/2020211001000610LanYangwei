@@ -3,13 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!-- tomcat read this file to run servlet -->
+    <!-- you need to tell tomcat we have created a new servlet -->
     <context-param>
         <param-name>driver</param-name>
         <param-value>com.mysql.cj.jdbc.Driver</param-value>
     </context-param>
     <context-param>
         <param-name>url</param-name>
-        <param-value>jdbc:mysql://127.0.0.1:3306/userdb</param-value>
+        <param-value>jdbc:mysql://localhost:3306/jsp?serverTimezone=UTC</param-value>
     </context-param>
     <context-param>
         <param-name>username</param-name>
@@ -17,51 +19,14 @@
     </context-param>
     <context-param>
         <param-name>password</param-name>
-        <param-value>taka8rie</param-value>
+        <param-value>root</param-value>
     </context-param>
 
-    <servlet>
-        <servlet-name>JDBCListener</servlet-name>
-        <servlet-class>com.LanYangwei.controller.JDBCServletContextListener</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
 
 
 
 
-
-      <welcome-file-list>
-          <welcome-file>home</welcome-file>
-      </welcome-file-list>
-
-      <!-- 1st one -->
-      <filter>
-          <filter-name>AuthFilter</filter-name>
-          <filter-class>com.LanYangwei.filter.AuthFilter</filter-class>
-      </filter>
-      <filter-mapping>
-          <filter-name>AuthFilter</filter-name>
-          <url-pattern>/hello</url-pattern>
-      </filter-mapping>
-
-      <!-- 2nd one -->
-      <filter>
-          <filter-name>HelloServlet</filter-name>
-          <filter-class>com.LanYangwei.filter.HelloFilter</filter-class>
-      </filter>
-      <filter-mapping>
-          <filter-name>HelloFilter</filter-name>
-          <url-pattern>/hello</url-pattern> <!--url of HelloServlet  - this filter is only for helloServlet-->
-      </filter-mapping>
-
-      <!-- 3rd one -->
-      <filter>
-          <filter-name>LoggerFilter</filter-name>
-          <filter-class>com.LanYangwei.filter.LoggerFilter</filter-class>
-      </filter>
-      <filter-mapping>
-          <filter-name>LoggerFilter</filter-name>
-          <url-pattern>/hello</url-pattern>
-      </filter-mapping>
-
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
 </web-app>
